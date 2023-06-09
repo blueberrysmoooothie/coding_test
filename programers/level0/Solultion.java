@@ -169,4 +169,32 @@ public class Solultion {
         int answer = Math.max(Integer.valueOf(num), 2 * a * b);
         return answer;
     }
+
+    // 콜라츠 수열 만들기
+    // https://school.programmers.co.kr/learn/courses/30/lessons/181919
+    public int calc(int x) {
+        if (x % 2 == 0) {
+            int ans = x / 2;
+            return ans;
+        } else {
+            return x * 3 + 1;
+        }
+    }
+
+    public int[] solution(int n) {
+        String answer_str = Integer.toString(n);
+
+        while (n != 1) {
+            n = calc(n);
+            answer_str += "," + Integer.toString(n);
+        }
+        String[] answer_list = answer_str.split(",");
+        int[] answer = new int[answer_list.length];
+
+        for (int index = 0; index < answer.length; index++) {
+            answer[index] = Integer.valueOf(answer_list[index]);
+        }
+
+        return answer;
+    }
 }
