@@ -1,3 +1,7 @@
+
+import java.util.List;
+import java.util.LinkedList;
+
 public class Solultion {
 
     // 수열과 구간쿼리 4
@@ -196,5 +200,25 @@ public class Solultion {
         }
 
         return answer;
+    }
+
+    // 배열 만들기 4
+    // https://school.programmers.co.kr/learn/courses/30/lessons/181918?language=java
+    public int[] solution(int[] arr) {
+        if (arr.length == 1) {
+            return arr;
+        }
+        LinkedList<Integer> answer = new LinkedList<Integer>();
+        answer.addLast(arr[arr.length - 1]);
+        for (int index = arr.length - 2; index >= 0; index--) {
+            if (arr[index] < answer.get(0)) {
+                answer.addFirst(arr[index]);
+            }
+        }
+        int[] stk = new int[answer.size()];
+        for (int index = 0; index < answer.size(); index++) {
+            stk[index] = answer.get(index);
+        }
+        return stk;
     }
 }
