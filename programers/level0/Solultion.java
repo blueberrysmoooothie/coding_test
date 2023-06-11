@@ -221,4 +221,17 @@ public class Solultion {
         }
         return stk;
     }
+
+    // 9로 나눈 나머지
+    // https://school.programmers.co.kr/learn/courses/30/lessons/181914?language=java
+
+    public int solution(String number) {
+        int sum_ = 0;
+
+        for (int index = 0; index < number.length(); index++) {
+            sum_ += Character.getNumericValue(number.charAt(index));
+        }
+        int answer = sum_ % 9;
+        return answer;
+    }
 }
